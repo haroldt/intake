@@ -54,6 +54,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
+body {
+  width: 960px;
+  margin: 0 auto 0 auto;
+}
+
 a {
   color: #3366cc;
 }
@@ -66,7 +71,8 @@ a:focus, a:active {
 }
 
 body {
-  font: 13px Arial, Helvetica, sans-serif;
+  font: 16px "museo-slab", Arial, Helvetica, sans-serif;
+  font-weight: 300;
   background: white;
   color: #0d0d0d;
 }
@@ -74,8 +80,7 @@ body {
 h1 {
   left: 0;
   font-size: 40px;
-  font-weight: bold;
-  margin-top: -40px;
+  font-weight: 700;
   text-align: center;
   width: 100%;
 }

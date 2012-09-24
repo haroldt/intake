@@ -1,20 +1,14 @@
 %h1 Sinatra has taken the stage
 
-= session['error']
-
 .navbar
-	- if session['auth']
-		%a{:href => '/logout'}logout
-	- else
-		%a{:href => 'auth/clio'} Sign into Clio
+	%a{:href => '/logout'}logout
+
 
 %h3
 	= 'Hello,' + session['auth']['info']['first_name'] + ', ' if session['token']
 	Welcome to my list of interesting articles.
+	= @posts
 
-- if session['auth']
-	%p
-		%span.like_site Welcome to UNLV Auth
-	%p
-		- activites = session['token'].request(:get, "https://api-docs.goclio.com/api/v1/activities")
-		- render :json => activities.body
+
+.content 
+	Welcome

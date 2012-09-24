@@ -18,5 +18,8 @@ gem 'omniauth-clio'
 # For Production
 gem 'heroku'
 
-# For using JSON
-gem 'multi_json'
+# For JSON parsing
+gem 'json'
+
+# For Partying! (or calling Clio's Rest API)
+gem 'httparty'

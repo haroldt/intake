@@ -2,14 +2,12 @@ require 'rubygems'
 require 'sinatra'
 require 'haml'
 require 'omniauth-clio'
-require 'multi_json'
-
-# Helpers
-require './lib/render_partial'
+require 'httparty'
+require 'json'
 
 # Set up Omniauth
-# use Rack::Session::Cookie
 enable :sessions
+use Rack::Session::Cookie
 use OmniAuth::Builder do
   provider :clio, ENV['CLIO_CLIENT_KEY'], ENV['CLIO_CLIENT_SECRET'] 
 end
@@ -23,36 +21,52 @@ set :haml, {:format => :html5} # default Haml format is :xhtml
 
 # Application routes
 get '/' do
-  haml :index, :layout => :'layouts/application'
+  unless session['token'].nil?
+    get_activities
+    haml :index, :layout => :'layouts/application'
+  else
+    haml :show, :layout => :'layouts/application'
+  end
 end
 
 get '/auth/clio/callback' do
-	session['auth'] = request.env['omniauth.auth']
-	session['token'] = session['auth']['credentials']['token']
-	session['fb_error'] = nil
-	# @token = auth['credentials']['token']
-	# @name = auth['info']['first_name']
-	# session['user'] = params[:name]
-	redirect '/'
-	# erb "<h1>#{params[:provider]}</h1>
- #    <pre>#{JSON.pretty_generate(request.env['omniauth.auth'])}</pre>"
-end
-
-get 'auth/failure' do
-	"Authentigation failed: #{params}"
-end	
-
-get '/auth/:provider/deauthorized' do
-	"#{params[:provider]} has deauthorized this app."
+  auth = request.env['omniauth.auth']
+  token = auth['credentials']['token']
+  session['token'] = token
+  redirect '/'
 end
 
 get '/logout' do
-	clear_session
+	session['token'] = nil
 	redirect '/'
 end
 
-def clear_session
-	session['auth'] = nil
-	session['token'] = nil
-	session['error'] = nil
+# Clio API Methods
+def get_activities
+	token = session['token']
+  auth = "Bearer " + token
+  user = HTTParty.get("https://app.goclio.com/api/v1/activities", :headers => { "Authorization" => auth})
+  @posts = user['activities']
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
