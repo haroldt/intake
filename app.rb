@@ -3,14 +3,16 @@ require 'sinatra'
 require 'haml'
 require 'omniauth-clio'
 require 'httparty'
-require 'json'
+require 'rack-flash'
 
 # Set up Omniauth
 enable :sessions
 use Rack::Session::Cookie
+use Rack::Flash
 use OmniAuth::Builder do
   provider :clio, ENV['CLIO_CLIENT_KEY'], ENV['CLIO_CLIENT_SECRET'] 
 end
+
 
 # Set Sinatra variables
 set :app_file, __FILE__
@@ -38,6 +40,15 @@ end
 
 get '/logout' do
 	session['token'] = nil
+	redirect '/'
+end
+
+get '/auth/failure' do
+	redirect '/'  
+end
+
+get '/auth/clio/deauthorized' do
+	flash[:error] = "Authentication Failed: You will need to reauthenticate"
 	redirect '/'
 end
 

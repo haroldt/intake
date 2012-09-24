@@ -1,10 +1,12 @@
-.show
-	.intro
+.box
+	#intro
 		%img(src="images/unlv.png")
 		%img(src="images/clio.png")
-	%h2 Intake Interview
+	%h1 Intake Interview
 	%p
-		This app is for student lawyers 
-	.call_to_action
-		%a{:href => 'auth/clio'} Sign into Clio
-
+		This application is for student lawyers at the Boyd School of Law at University of Nevada, Las Vegas, to record initial client interviews at the 
+		%a{:href=> 'http://law.unlv.edu/clinics.html'}&= "Thomas & Mack Clinic."
+		After a student logs in with their 
+		%a{:href => "https://goclio.com"}Clio
+		account, he is taken to a page with questions and answers to ask a client. After inputting the appropriate answers, the student can press a 'finish' button which will upload his answers into his clio account and create a PDF with the client's answers.
+	%a{:href => 'auth/clio', :class => 'call_button'} Get Started

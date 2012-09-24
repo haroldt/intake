@@ -18,8 +18,8 @@ gem 'omniauth-clio'
 # For Production
 gem 'heroku'
 
-# For JSON parsing
-gem 'json'
-
 # For Partying! (or calling Clio's Rest API)
 gem 'httparty'
+
+# For flashing messages
+gem 'rack-flash3'

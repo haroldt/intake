@@ -55,34 +55,32 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 body {
+  font: 16px "museo-slab", serif;
+  font-weight: 300;
+  background: #cbcccf;
+  color: black;
   width: 960px;
   margin: 0 auto 0 auto;
 }
 
 a {
-  color: #3366cc;
+  color: #bf221d;
+  text-decoration: none;
 }
 a:hover {
-  color: #3366cc;
-  text-decoration: none;
+  text-decoration: underline;
 }
 a:focus, a:active {
   outline: none;
 }
 
-body {
-  font: 16px "museo-slab", Arial, Helvetica, sans-serif;
-  font-weight: 300;
-  background: white;
-  color: #0d0d0d;
-}
-
 h1 {
   left: 0;
   font-size: 40px;
-  font-weight: 700;
   text-align: center;
   width: 100%;
+  font-family: "trajan-pro", sans-serif;
+  margin: 35px 0;
 }
 
 ul {
@@ -108,4 +106,69 @@ ul li a {
 }
 ul li a:hover {
   text-decoration: underline;
+}
+
+p {
+  text-align: justify;
+}
+
+.box {
+  margin-top: 30px;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid black;
+}
+
+#intro {
+  width: 637px;
+  margin: 0 150px 10px 173px;
+  padding: 3px;
+}
+#intro img {
+  margin: 0 25px;
+}
+
+.call_button {
+  width: 20%;
+  margin: 35px 40%;
+  display: block;
+  font-size: 24px;
+  padding: 10px;
+  background: #cbcccf;
+  border-radius: 15px;
+  font-weight: 700;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid black;
+  text-decoration: none;
+}
+.call_button:hover {
+  color: #cbcccf;
+  background: #bf221d;
+  text-decoration: none;
+}
+
+.submit_button {
+  width: 16%;
+  margin: 35px 42%;
+  display: block;
+  font-size: 24px;
+  padding: 10px;
+  background: #cbcccf;
+  border-radius: 15px;
+  font-weight: 700;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid black;
+  text-decoration: none;
+}
+.submit_button:hover {
+  color: #cbcccf;
+  background: #bf221d;
+  text-decoration: none;
+}
+
+#greetings {
+  text-align: center;
 }

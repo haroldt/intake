@@ -3,15 +3,7 @@
 
 ## This project was built with Sinatra Bootstrap
 
-Sinatra Bootstrap supports:
-
-* [Haml](http://haml-lang.com/)
-* [Sass](http://sass-lang.com/)
-* [Compass](https://github.com/chriseppstein/compass)
-* [Grid Coordinates](https://github.com/adamstac/grid-coordinates)
-* [Meyer Reset](https://github.com/adamstac/meyer-reset)
-* [jQuery](http://jquery.com/)
-* [Modernizr](http://www.modernizr.com/)
+[Check it out!](https://github.com/adamstac/sinatra-bootstrap)
 
 ## What is the purpose of UNLV Intake?
 
@@ -20,46 +12,27 @@ This app allows student attorneys at the student clinic of the Boyd Law School a
 * Authenticate with their Clio account
 * Access the proper intake interview
 * Record answers to the interview
-* Post the contact (only if the contact is unique, matter and task into Clio.
+* Post the contact, matter and task into Clio.
 
-## How do I get started? - From Sinatra
+## How do I get started? 
 
-Then we need to run `bundle install` to install the required gems as specified by the [Gemfile](https://github.com/adamstac/sinatra-bootstrap/blob/master/Gemfile).
+First things first, you need to get acquainted with [Clio's API](http://api-docs.goclio.com/v1/index.html#authorization-with-oauth-2-0). Make sure you sign up for an account and create a Clio application. You should have an App Key and an App Secret.
 
-If you're in a fresh gemset or you don't have Bundler installed, run the following at the command prompt:
+Next, download this repo this repository to your computer.
+
+In your terminal, change directories until you are in the root, which is '/intake' unless you re-named it and run:
 
     gem install bundler
-    
-You should see output like this:
+    bundle
 
-    sinatra-bootstrap :: (master) » gem install bundler
-    Successfully installed bundler-1.0.14
-    1 gem installed
-    sinatra-bootstrap :: (master) » bundle install
-    Fetching source index for http://rubygems.org/
-    Installing chunky_png (1.2.0) 
-    Installing fssm (0.2.7) 
-    Installing sass (3.1.2) 
-    Installing compass (0.11.1) 
-    Installing grid-coordinates (1.1.4) 
-    Installing haml (3.1.1) 
-    Installing rack (1.3.0) 
-    Installing shotgun (0.9) 
-    Installing tilt (1.3.2) 
-    Installing sinatra (1.2.6) 
-    Using bundler (1.0.14) 
-    Your bundle is complete! Use `bundle show [gemname]` to see where a bundled gem is installed.
-
-## How do I start the application? - From Sinatra Bootstrap
-
-After you've ran `bundle install` and Sinatra as well as the other required gems are installed, start it up by running this command:
+After you've ran `bundle` and Sinatra as well as the other required gems are installed, you can now start-up the application with this 
 
     # runs `bundle exec shotgun config.ru` behind the scenes
-    rake start
+    CLIO_APP_KEY=<your app key you got from Clio> CLIO_APP_SECRET=<your secret key you got from Clio> rake start
 
-This will start Sinatra Bootstrap on Sinatra's default port 9393 and will now be able to view the application in your web browser at this URL [http://localhost:9393](http://localhost:9393).
+This will start Sinatra Bootstrap on Sinatra's default port 9393 with the appropriate API keys. You can now view the application in your web browser at this URL [http://localhost:9393](http://localhost:9393).
 
-You'll also want to open a new terminal window to the same directory and run the Compass watch rake task so we can monitor our Sass files for changes.
+Additionally, if you wan't to pretty things up. You'll also want to open a new terminal window to the same directory and run the Compass watch rake task so we can monitor our Sass files for changes.
 
     rake styles:watch
 
