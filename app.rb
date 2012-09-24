@@ -44,6 +44,7 @@ get '/logout' do
 end
 
 get '/auth/failure' do
+	flash[:error] = "Authentication Failed: You will need to reauthenticate"
 	redirect '/'  
 end
 
