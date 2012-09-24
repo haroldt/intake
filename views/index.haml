@@ -2,22 +2,86 @@
 	#greetings
 		= 'Hi ' + session['auth']['info']['first_name'] + ', thanks for trying this out! If this is not ' + session['auth']['info']['first_name'] + ' then please'
 		%a{:href => '/logout'}logout.
-	%h1 Clinic Intake Interview
+	%h1 Immigration Clinic Intake Interview
 	%p
-		Directions: This should be pretty straightforward, simply fill in the blank spaces with information you glean from talking to your client. When you have finished filling out all the boxes, simply hit the 'Finish' button. If you visit your Clio account after you submit the interview, you should see the new information reflected in your account.
-	%form{:name => "email", :id => "email", :action => "/contact", :method => "post", :enctype => "text/plain"}
-		%fieldset
-			%ol
-				%li
-					%label{:for => "message[name]"} Name:
-					%input{:type => "text", :name => "message[name]", :class => "text"}
-				%li
-					%label{:for => "message[mail]"} Mail:
-					%input{:type => "text", :name => "message[mail]", :class => "text"}
-				%li
-					%label{:for => "message[body]"} Message:
-					%textarea{:name => "message[body]"}
-			%input{:type => "submit", :value => "Send", :class => "button"}
-		.content 
-			Welcome
-		%a{:href => 'auth/clio', :class => 'submit_button'} Finish
+		%b Directions: 
+		This should be pretty straightforward, simply fill in the blank spaces with information you glean from talking to your client. When you have finished filling out all the boxes, simply hit the 'Finish' button. If you visit your Clio account after you submit the interview, you should see the new information reflected in your account.
+	%p
+		%b Review with client before starting intake:
+		The access to Immigration Clinic is a volunteer, non-profit program to help low-income immigrants. We are NOT the INS. We will go through a series of questions to help me understand your case and prepare your information for a volunteer attorney. Everything you tell me will be kept confidential, and will be released only to your volunteer attorney with your permission.
+	%h2 General Information
+	.divide-left
+		%form{:class => 'form-horizontal'}
+			#control-group
+				%label{:class => 'control-label'} Student Attorney:
+				#controls
+					%input{:type => "text", :placeholder => "#{session['auth']['info']['first_name'] + ' ' + session['auth']['info']['last_name']}"}
+			#control-group
+				%label{:class => 'control-label'} Student E-mail:
+				#controls
+					%input{:type => "text", :placeholder => "#{session['auth']['info']['email']}"}
+			#control-group
+				%label{:class => 'control-label'} Interpreter Needed?
+				#controls
+					%label{:class => 'radio inline'}
+						%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
+					%label{:class => 'radio inline'}
+						%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
+			#control-group
+				%label{:class => 'control-label'} Interpreter Name:
+				#controls
+					%input{:type => "text", :placeholder => "Name"}
+			#control-group
+				%label{:class => 'control-label'} Interpreter Address:
+				#controls
+					%input{:type => "text", :placeholder => "Address"}
+			#control-group
+				%label{:class => 'control-label'} Advocate present?
+				#controls
+					%label{:class => 'radio inline'}
+						%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
+					%label{:class => 'radio inline'}
+						%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
+
+	.divide-right
+		%form{:class => 'form-horizontal'}
+			#control-group
+				%label{:class => 'control-label'} Date:
+				#controls
+					%input{:type => "text", :placeholder => "#{Time.now.month.to_s+'/'+Time.now.day.to_s+'/'+Time.now.year.to_s}"}
+			#control-group
+				%label{:class => 'control-label'} Language:
+				#controls
+					%input{:type => "text", :placeholder => "English"}
+			#control-group
+				%label{:class => 'control-label'} Interpreter Relationship:
+				#controls
+					%input{:type => "text", :placeholder => "Friend, Mother, etc."}
+			#control-group
+				%label{:class => 'control-label'} Interpreter Phone:
+				#controls
+					%input{:type => "text", :placeholder => "(702) 123-4567"}
+			#control-group
+				%label{:class => 'control-label'} Name and Organization:
+				#controls
+					%input{:type => "text", :placeholder => "Legal Aid"}
+	.full
+		%form{:class => 'form-horizontal'}
+			#control-group
+				%label{:class => 'control-label'} How did the applicant hear about Thomas and Mack Legal Clinic?
+				#controls
+					%textarea{:rows => '3'}
+
+
+	%br
+	%h2 Personal Information
+	%h2 Employment Information
+	%h2 Household Information
+	%h2 Marital Status Information
+	%h2 Immigration Status
+	%h2 All Entries to the United States
+	%h2 Personal Criminal History
+	%h2 Family Information
+	%h2 Public Benefits Information
+	%h2 Information about Services and Referrals
+	%a{:href => 'auth/clio', :class => 'submit_button'} Finish

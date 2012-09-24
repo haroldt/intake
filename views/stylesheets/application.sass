@@ -4,7 +4,7 @@
 
 // Base font
 =font-default
-  font: 16px "museo-slab", serif
+  font: 16px "museo-slab"  serif
   font-weight: 300
 
 // Fixed Width Layout
@@ -22,46 +22,41 @@ a
   text-decoration: none
   &:hover
     text-decoration: underline
-  &:focus,
+  &:focus 
   &:active
     outline: none
   &:visited
     // Default style for visited links
+b 
+  font-weight: 700
 h1
-  left: 0
   font-size: 40px
   text-align: center
   width: 100%
-  font-family: "trajan-pro", sans-serif
+  font-family: "trajan-pro"  sans-serif
   margin: 35px 0
-ul
-  +border-radius(6px)
-  background: #e7e7e7
-  border: 1px solid #ccc
-  margin-top: 10px
-  margin-left: 10px
-  margin-right: 10px
-  li
-    display: inline
-    line-height: 30px
-    padding: 0 15px
-    a
-      color: #000
-      text-decoration: none
-      &:hover
-        text-decoration: underline
+h2
+  font-size: 28px
+  text-align: center
+  width: 100%
+  font-family: "trajan-pro"  sans-serif
+  margin: 25px 0
 p
   text-align: justify
-
+  text-indent: 30px
+  margin: 10px 0
+form
+  margin: 15px 0
 .box
   margin-top: 30px
   background: #FFFFFF
   padding: 30px
   border-radius: 15px
   border: 1px solid #000
+  overflow: hidden
 #intro
   width: 637px
-  margin: 0 150px 10px 173px
+  margin: 0 150px 0px 173px
   padding: 3px
   img
     margin: 0 25px
@@ -101,5 +96,23 @@ p
     text-decoration: none
 #greetings
   text-align: center
-
-
+.divide-left 
+  float: left
+  width: 50%
+.divide-right 
+  float: right
+  width: 50%
+.full
+  width: 100%
+li 
+  margin: 5px 0
+label
+  line-height: 20px
+  display: block
+  margin-bottom: 5px
+#control-group
+  margin: 10px
+.control-label
+  margin-right: 5px
+form
+  font-size: 13px
