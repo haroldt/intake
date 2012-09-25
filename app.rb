@@ -53,14 +53,21 @@ get '/auth/clio/deauthorized' do
 	redirect '/'
 end
 
-# Clio API Methods
-def get_activities
+post '/' do
 	token = session['token']
   auth = "Bearer " + token
+  
   user = HTTParty.get("https://app.goclio.com/api/v1/activities", :headers => { "Authorization" => auth})
-  @posts = user['activities']
+  
 end
 
+# Clio API Methods
+def get_activities
+	# token = session['token']
+ #  auth = "Bearer " + token
+ #  user = HTTParty.get("https://app.goclio.com/api/v1/activities", :headers => { "Authorization" => auth}, :query => {:status })
+ #  @posts = user['activities']
+end
 
 
 
