@@ -102,6 +102,14 @@ form {
   margin: 15px 0;
 }
 
+.table {
+  width: 90%;
+  margin: 20px auto;
+}
+.table th {
+  font-weight: normal;
+}
+
 .box {
   margin: 30px 0;
   background: white;
@@ -154,6 +162,11 @@ form {
   width: 50%;
 }
 
+.nodivide {
+  float: left;
+  width: 100%;
+}
+
 .full {
   width: 100%;
 }
@@ -179,6 +192,10 @@ textarea {
   width: 657px;
   max-width: 657px;
   font-family: "museo-slab", serif;
+}
+
+#res {
+  text-align: center;
 }
 
 #checklist {
@@ -232,7 +249,6 @@ table input {
   font-weight: 700;
   border: 1px solid black;
   text-decoration: none;
-  width: 50%;
 }
 .submit_button:hover {
   color: #cbcccf;
@@ -249,4 +265,15 @@ footer {
   margin-left: 30%;
   font-size: 16px;
   line-height: 22px;
+}
+
+#clio_push {
+  text-align: center;
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+button a:hover {
+  color: #cbcccf;
+  text-decoration: none;
 }

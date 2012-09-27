@@ -75,40 +75,38 @@
 
 		%h2 Personal Information
 		.divide
-			.divide-left
-				%form{:class => 'form-horizontal', :method => 'POST', :action => '/'}
+			%form{:class => 'form-horizontal', :method => 'POST', :id => 'form1'}
+				.divide-left
 					.control-group
 						%label{:class => 'control-label', :for => 'first_name'} First Name:
 						.controls
-							%input{:type => "text", :placeholder => "First Name", :name => "first_name", :value => @values[:first_name] || ""}
+							%input{:type => "text", :placeholder => "John", :name => "first_name", :value => @values[:first_name]}
 					.control-group
-						%label{:class => 'control-label', :method => 'POST'} Last Name:
+						%label{:class => 'control-label', :for => 'last_name'} Last Name:
 						.controls
-							%input{:type => "text", :placeholder => "Last Name", :name => "last_name", :value => @values[:last_name] || ""}
-
-					/ .control-group
-					/ 	%label{:class => 'control-label'} Sex
-					/ 	.controls
-					/ 		%label{:class => 'radio inline'}
-					/ 			%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } M
-					/ 		%label{:class => 'radio inline'}
-					/ 			%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} F
-					/ 		%label{:class => 'radio inline'}
-					/ 			%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} O
-					/ .control-group
-					/ 	%label{:class => 'control-label'} Date of Birth:
-					/ 	.controls
-					/ 		%input{:type => "text", :placeholder => "1/1/1970"}
-					/ .control-group
-					/ 	%label{:class => 'control-label'} Country of Citizenship:
-					/ 	.controls
-					/ 		%input{:type => "text", :placeholder => "USA"}
-			.divide-right
-				%form{:class => 'form-horizontal'}
+							%input{:type => "text", :placeholder => "Doe", :name => "last_name", :value => @values[:last_name]}
+					.control-group
+						%label{:class => 'control-label'} Sex
+						.controls
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } M
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} F
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} O
+					.control-group
+						%label{:class => 'control-label'} Date of Birth:
+						.controls
+							%input{:type => "text", :placeholder => "1/1/1970"}
+					.control-group
+						%label{:class => 'control-label'} Country of Citizenship:
+						.controls
+							%input{:type => "text", :placeholder => "USA"}
+				.divide-right
 					.control-group
 						%label{:class => 'control-label'} Middle Name:
 						.controls
-							%input{:type => "text", :placeholder => "Last Name"}
+							%input{:type => "text", :placeholder => "James"}
 					.control-group
 						%label{:class => 'control-label'} Maiden Name:
 						.controls
@@ -120,28 +118,25 @@
 					.control-group
 						%label{:class => 'control-label'} Place of Birth:
 						.controls
-							%input{:type => "text", :placeholder => "Las Vegas, NV", :value => @values[:name]}
+							%input{:type => "text", :placeholder => "Las Vegas, NV"}
 					.control-group
 						%label{:class => 'control-label'} Jurisdiction:
 						.controls
 							%input{:type => "text", :placeholder => "Clark County, Nevada"}
-		%form{:class => 'form-horizontal'}
-			.control-group
-				%label{:class => 'control-label'} Address:
-				.controls
-					%textarea{:rows => '3', :placeholder => "Address in the US"}
-		%form{:class => 'form-horizontal'}
-			.control-group
-				%label{:class => 'control-label'} Permanent Address Abroad:
-				.controls
-					%textarea{:rows => '3', :placeholder => "Address in another country (if any)"}
-		.divide
-			.divide-left
-				%form{:class => 'form-horizontal'}
+				.nodivide
 					.control-group
-						%label{:class => 'control-label'} Telephone Number (USA):
+						%label{:class => 'control-label', :for => 'address_us'} Address:
 						.controls
-							%input{:type => "text", :placeholder => "Telephone starting with +1"}
+							%textarea{:rows => '3', :placeholder => "Address in the US", :value => @values[:address_us], :name => 'address_us'}
+					.control-group
+						%label{:class => 'control-label'} Permanent Address Abroad:
+						.controls
+							%textarea{:rows => '3', :placeholder => "Address in another country (if any)"}
+				.divide-left
+					.control-group
+						%label{:class => 'control-label', :for => 'phone_home'} Telephone Number (USA):
+						.controls
+							%input{:type => "text", :placeholder => "Telephone starting with +1", :name => "phone_home", :value => @values[:phone_home]}
 					.control-group
 						%label{:class => 'control-label'} Can we call you?
 						.controls
@@ -149,12 +144,11 @@
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
 							%label{:class => 'radio inline'}
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-			.divide-right
-				%form{:class => 'form-horizontal'}
+				.divide-right
 					.control-group
 						%label{:class => 'control-label'} Telephone Number Abroad:
 						.controls
-							%input{:type => "text", :placeholder => "Telephone outside of US"}
+							%input{:type => "text", :placeholder => "Telephone outside of US", :value => @values[:phone_home_abroad]}
 					.control-group
 						%label{:class => 'control-label'} Can we leave a message?
 						.controls
@@ -162,14 +156,12 @@
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
 							%label{:class => 'radio inline'}
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-		%form{:class => 'form-horizontal'}
-			.control-group
-				%label{:class => 'control-label'} Cell Phone:
-				.controls
-					%input{:type => "text", :placeholder => "Cell Phone Number"}
-		.divide
-			.divide-left
-				%form{:class => 'form-horizontal'}
+				.nodivide
+					.control-group
+						%label{:class => 'control-label'} Cell Phone:
+						.controls
+							%input{:type => "text", :placeholder => "Cell Phone Number", :name => "phone_mobile", :value => @values[:phone_mobile]}
+				.divide-left
 					.control-group
 						%label{:class => 'control-label'} Can we call you?
 						.controls
@@ -177,8 +169,7 @@
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
 							%label{:class => 'radio inline'}
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-			.divide-right
-				%form{:class => 'form-horizontal'}
+				.divide-right
 					.control-group
 						%label{:class => 'control-label'} Can we leave a message?
 						.controls
@@ -186,14 +177,12 @@
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
 							%label{:class => 'radio inline'}
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-		%form{:class => 'form-horizontal'}
-			.control-group
-				%label{:class => 'control-label'} Work Phone:
-				.controls
-					%input{:type => "text", :placeholder => "Work Phone Number"}
-		.divide
-			.divide-left
-				%form{:class => 'form-horizontal'}
+				.nodivide
+					.control-group
+						%label{:class => 'control-label'} Work Phone:
+						.controls
+							%input{:type => "text", :placeholder => "Work Phone Number", :value => @values[:phone_work]}
+				.divide-left
 					.control-group
 						%label{:class => 'control-label'} Can we call you?
 						.controls
@@ -201,8 +190,7 @@
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
 							%label{:class => 'radio inline'}
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-			.divide-right
-				%form{:class => 'form-horizontal'}
+				.divide-right
 					.control-group
 						%label{:class => 'control-label'} Can we leave a message?
 						.controls
@@ -210,14 +198,12 @@
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
 							%label{:class => 'radio inline'}
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-		%form{:class => 'form-horizontal'}
-			.control-group
-				%label{:class => 'control-label'} Other Phone:
-				.controls
-					%input{:type => "text", :placeholder => "Cell Phone Number"}
-		.divide
-			.divide-left
-				%form{:class => 'form-horizontal'}
+				.nodivide
+					.control-group
+						%label{:class => 'control-label'} Other Phone:
+						.controls
+							%input{:type => "text", :placeholder => "Other Phone Number"}
+				.divide-left
 					.control-group
 						%label{:class => 'control-label'} Can we call you?
 						.controls
@@ -225,8 +211,7 @@
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
 							%label{:class => 'radio inline'}
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-			.divide-right
-				%form{:class => 'form-horizontal'}
+				.divide-right
 					.control-group
 						%label{:class => 'control-label'} Can we leave a message?
 						.controls
@@ -234,14 +219,12 @@
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
 							%label{:class => 'radio inline'}
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-		%form{:class => 'form-horizontal'}
-			.control-group
-				%label{:class => 'control-label'} E-Mail Address:
-				.controls
-					%input{:type => "text", :placeholder => "E-mail Address"}
-		.divide
-			.divide-left
-				%form{:class => 'form-horizontal'}
+				.nodivide
+					.control-group
+						%label{:class => 'control-label'} E-Mail Address:
+						.controls
+							%input{:type => "text", :placeholder => "E-mail Address", :name => "e_mail", :value => @values[:e_mail]}
+				.divide-left
 					.control-group
 						%label{:class => 'control-label'} Can we write you?
 						.controls
@@ -249,8 +232,7 @@
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
 							%label{:class => 'radio inline'}
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-			.divide-right
-				%form{:class => 'form-horizontal'}
+				.divide-right
 					.control-group
 						%label{:class => 'control-label'} Can we leave a message?
 						.controls
@@ -258,15 +240,8 @@
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
 							%label{:class => 'radio inline'}
 								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-		#yesorno
-			%form{:class => 'form-horizontal'}
-				.control-group
-					%label{:class => 'control-label'} Have you lived in your current residence for the past five(5) years?
-					.controls
-					%label{:class => 'radio inline'}	
-						%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
-					%label{:class => 'radio inline'}
-						%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
+		#res
+			Please list all the places you have lived at for the last five years.
 		#restable
 			%table{:class => 'table table-bordered'}
 				%thead
@@ -344,15 +319,6 @@
 		/ %h2 Personal Criminal History
 		/ %h2 Family Information
 		%h2 Public Benefits Information
-		#yesorno
-			%form{:class => 'form-horizontal'}
-				.control-group
-					%label{:class => 'control-label'} Are you or your children receiving public benefits (Work First, Food stamps etc.)?
-					.controls
-					%label{:class => 'radio inline'}	
-						%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
-					%label{:class => 'radio inline'}
-						%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No			
 		#bendivide
 			.divide-left
 				%form{:class => 'form-horizontal'}
@@ -404,4 +370,4 @@
 		After you print this page, you can now send this form to 
 		%a{:href => 'app.goclio.com'} Clio 
 		to create a new contact and matter.
-	%input{:class => 'submit_button', :type => 'submit', :value => 'Send to Clio'}
+	%button{:class => 'submit_button', :id => 'submit'}Submit to Clio

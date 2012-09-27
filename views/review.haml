@@ -2,7 +2,7 @@
 	/ = @query
 	#greetings
 		Thanks for using this application #{session['auth']['info']['first_name']}!
-	%h2 
+	#clio_push
 		A new Client has been created in your
 		%a{:href => 'http://app.goclio.com'} Clio Account.
 	.divide
@@ -11,5 +11,20 @@
 				First Name: #{params[:first_name]}
 				%br
 				Last Name: #{params[:last_name]}
+				%br
+				Home Number: #{params[:phone_home]}
+				%br
+				Cell Phone: #{params[:phone_mobile]}
+				%br
+				E-Mail: #{params[:e_mail]}
+		.divide-right
+			.client
+				Address: #{params[:address_us]}
+	#clio_push
+		A new matter 'Immigration Clinic Assistance' has been created for #{params[:first_name]+' '+params[:last_name]}.
+	#clio_push
+		Finally, a new completed task 'Intake Interview' has been created for #{params[:first_name]+' '+params[:last_name]}.
 	#signout
-		%a{:href => '/logout'}All done?
+		%button{:class => 'submit_button'}
+			%a{:href => '/logout'}All done?
+	= @json

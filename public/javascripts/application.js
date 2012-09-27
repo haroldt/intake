@@ -8,12 +8,6 @@ $(document).ready(function() {
 	  .attr('target', '_blank');
 });
 
-$('#sendall').click(function() {
-    $('form').each(function() {
-        $.post(this.action, $form.serialize());
-    });
-});
-
 // When the document is ready, initialize the link so
 // that when it is clicked, the printable area of the
 // page will print.
@@ -35,3 +29,26 @@ return( false );
  
 }
 );
+
+$("input[name=showTable]").click(function () {
+$("#checklist").show("slow");
+});
+
+$("input[name=hideTable]").click(function () {
+$("#checklist").hide("slow");
+});
+
+$(document).ready(function() {
+
+	$("#submit").click(function(){
+		$("#form1").submit();
+		$("#form2").submit();
+		$("#form3").submit();
+		$("#form4").submit();
+		$("#form5").submit();
+		$("#form6").submit();
+		$("#form7").submit();
+		$("#form8").submit();
+		$("#form9").submit();
+	});
+});

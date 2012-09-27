@@ -3,6 +3,7 @@ require 'sinatra'
 require 'haml'
 require 'omniauth-clio'
 require 'httparty'
+require 'Jsonify'
 
 # Set up Omniauth
 enable :sessions
@@ -53,6 +54,7 @@ end
 
 post '/' do
 	@values = params
+	create_json
 	haml :review, :layout => :'layouts/application'
 end
 
@@ -64,13 +66,15 @@ def get_activities
   @activities = user['activities']
 end
 
-
-
-
-
-
-
-
+def create_json
+	json = Jsonify::Builder.new
+	etc = json.person do # start a new JsonObject where the key is 'foo'
+  	json.name 'George Burdell' # add a pair to this object
+  	json.skills ['engineering','bombing'] # adds a pair with an array value
+  	json.name 'George P. Burdell'
+  end
+  @json = etc
+end
 
 
 
