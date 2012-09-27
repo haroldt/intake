@@ -214,18 +214,14 @@ table input {
 
 #clio {
   width: 70%;
-  margin: 0 15%;
+  margin: 30px 15% 0 15%;
   font-size: 20px;
   text-align: center;
   font-family: "trajan-pro", sans-serif;
 }
 
-input[type="submit"] {
-  width: 30%;
-}
-
 .submit_button {
-  margin: 30px 35%;
+  margin: 30px auto;
   display: block;
   font-size: 30px;
   font-family: "trajan-pro", sans-serif;
@@ -236,6 +232,7 @@ input[type="submit"] {
   font-weight: 700;
   border: 1px solid black;
   text-decoration: none;
+  width: 50%;
 }
 .submit_button:hover {
   color: #cbcccf;

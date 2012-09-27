@@ -2,404 +2,405 @@
 	#greetings
 		= 'Hi ' + session['auth']['info']['first_name'] + ', thanks for trying this out! If this is not ' + session['auth']['info']['first_name'] + ' then please'
 		%a{:href => '/logout'}logout.
-	%h1 Immigration Clinic Intake Interview
-	%p
-		%b Directions: 
-		This should be pretty straightforward, simply fill in the blank spaces with information you glean from talking to your client. When you have finished filling out all the boxes, simply hit the 'Finish' button. If you visit your Clio account after you submit the interview, you should see the new information reflected in your account.
-	%p
-		%b Review with client before starting intake:
-		The access to Immigration Clinic is a volunteer, non-profit program to help low-income immigrants. We are NOT the INS. We will go through a series of questions to help me understand your case and prepare your information for a volunteer attorney. Everything you tell me will be kept confidential, and will be released only to your volunteer attorney with your permission.
-	%h2 General Information
-	.divide
-		.divide-left
-			%form{:class => 'form-horizontal'}
-				.control-group
-					%label{:class => 'control-label'} Student Attorney:
-					.controls
-						%input{:type => "text", :placeholder => "#{session['auth']['info']['first_name'] + ' ' + session['auth']['info']['last_name']}"}
-				.control-group
-					%label{:class => 'control-label'} Student E-mail:
-					.controls
-						%input{:type => "text", :placeholder => "#{session['auth']['info']['email']}"}
-				.control-group
-					%label{:class => 'control-label'} Interpreter Needed?
-					.controls
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-				.control-group
-					%label{:class => 'control-label'} Interpreter Name:
-					.controls
-						%input{:type => "text", :placeholder => "Name"}
-				.control-group
-					%label{:class => 'control-label'} Interpreter Address:
-					.controls
-						%input{:type => "text", :placeholder => "Address"}
-				.control-group
-					%label{:class => 'control-label'} Advocate present?
-					.controls
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
+	.printable
+		%h1 Immigration Clinic Intake Interview
+		%p
+			%b Directions: 
+			This should be pretty straightforward, simply fill in the blank spaces with information you glean from talking to your client. When you have finished filling out all the boxes, simply hit the 'Finish' button. If you visit your Clio account after you submit the interview, you should see the new information reflected in your account.
+		%p
+			%b Review with client before starting intake:
+			The access to Immigration Clinic is a volunteer, non-profit program to help low-income immigrants. We are NOT the INS. We will go through a series of questions to help me understand your case and prepare your information for a volunteer attorney. Everything you tell me will be kept confidential, and will be released only to your volunteer attorney with your permission.
+		%h2 General Information
+		.divide
+			.divide-left
+				%form{:class => 'form-horizontal'}
+					.control-group
+						%label{:class => 'control-label'} Student Attorney:
+						.controls
+							%input{:type => "text", :placeholder => "#{session['auth']['info']['first_name'] + ' ' + session['auth']['info']['last_name']}"}
+					.control-group
+						%label{:class => 'control-label'} Student E-mail:
+						.controls
+							%input{:type => "text", :placeholder => "#{session['auth']['info']['email']}"}
+					.control-group
+						%label{:class => 'control-label'} Interpreter Needed?
+						.controls
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
+					.control-group
+						%label{:class => 'control-label'} Interpreter Name:
+						.controls
+							%input{:type => "text", :placeholder => "Name"}
+					.control-group
+						%label{:class => 'control-label'} Interpreter Address:
+						.controls
+							%input{:type => "text", :placeholder => "Address"}
+					.control-group
+						%label{:class => 'control-label'} Advocate present?
+						.controls
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
 
-		.divide-right
-			%form{:class => 'form-horizontal'}
-				.control-group
-					%label{:class => 'control-label'} Date:
-					.controls
-						%input{:type => "text", :placeholder => "#{Time.now.month.to_s+'/'+Time.now.day.to_s+'/'+Time.now.year.to_s}"}
-				.control-group
-					%label{:class => 'control-label'} Language:
-					.controls
-						%input{:type => "text", :placeholder => "English"}
-				.control-group
-					%label{:class => 'control-label'} Interpreter Relationship:
-					.controls
-						%input{:type => "text", :placeholder => "Friend, Mother, etc."}
-				.control-group
-					%label{:class => 'control-label'} Interpreter Phone:
-					.controls
-						%input{:type => "text", :placeholder => "(702) 123-4567"}
-				.control-group
-					%label{:class => 'control-label'} Name and Organization:
-					.controls
-						%input{:type => "text", :placeholder => "Legal Aid"}
-	%form{:class => 'form-horizontal'}
-		.control-group
-			%label{:class => 'control-label'} How did the applicant hear about Thomas and Mack Legal Clinic?
-			.controls
-				%textarea{:rows => '3'}
-
-	%h2 Personal Information
-	.divide
-		.divide-left
-			%form{:class => 'form-horizontal', :method => 'POST', :action => '/'}
-				.control-group
-					%label{:class => 'control-label', :for => 'first_name'} First Name:
-					.controls
-						%input{:type => "text", :placeholder => "First Name", :name => "first_name", :value => @values[:first_name] || ""}
-				.control-group
-					%label{:class => 'control-label', :method => 'POST'} Last Name:
-					.controls
-						%input{:type => "text", :placeholder => "Last Name", :name => "last_name", :value => @values[:last_name] || ""}
-					%input{:type => 'submit'}
-
-				/ .control-group
-				/ 	%label{:class => 'control-label'} Sex
-				/ 	.controls
-				/ 		%label{:class => 'radio inline'}
-				/ 			%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } M
-				/ 		%label{:class => 'radio inline'}
-				/ 			%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} F
-				/ 		%label{:class => 'radio inline'}
-				/ 			%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} O
-				/ .control-group
-				/ 	%label{:class => 'control-label'} Date of Birth:
-				/ 	.controls
-				/ 		%input{:type => "text", :placeholder => "1/1/1970"}
-				/ .control-group
-				/ 	%label{:class => 'control-label'} Country of Citizenship:
-				/ 	.controls
-				/ 		%input{:type => "text", :placeholder => "USA"}
-		.divide-right
-			%form{:class => 'form-horizontal'}
-				.control-group
-					%label{:class => 'control-label'} Middle Name:
-					.controls
-						%input{:type => "text", :placeholder => "Last Name"}
-				.control-group
-					%label{:class => 'control-label'} Maiden Name:
-					.controls
-						%input{:type => "text", :placeholder => "Maiden Name (if any)"}
-				.control-group
-					%label{:class => 'control-label'} Nicknames:
-					.controls
-						%input{:type => "text", :placeholder => "Frankie, Alex, 2pac"}
-				.control-group
-					%label{:class => 'control-label'} Place of Birth:
-					.controls
-						%input{:type => "text", :placeholder => "Las Vegas, NV", :value => @values[:name]}
-				.control-group
-					%label{:class => 'control-label'} Jurisdiction:
-					.controls
-						%input{:type => "text", :placeholder => "Clark County, Nevada"}
-	%form{:class => 'form-horizontal'}
-		.control-group
-			%label{:class => 'control-label'} Address:
-			.controls
-				%textarea{:rows => '3', :placeholder => "Address in the US"}
-	%form{:class => 'form-horizontal'}
-		.control-group
-			%label{:class => 'control-label'} Permanent Address Abroad:
-			.controls
-				%textarea{:rows => '3', :placeholder => "Address in another country (if any)"}
-	.divide
-		.divide-left
-			%form{:class => 'form-horizontal'}
-				.control-group
-					%label{:class => 'control-label'} Telephone Number (USA):
-					.controls
-						%input{:type => "text", :placeholder => "Telephone starting with +1"}
-				.control-group
-					%label{:class => 'control-label'} Can we call you?
-					.controls
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-		.divide-right
-			%form{:class => 'form-horizontal'}
-				.control-group
-					%label{:class => 'control-label'} Telephone Number Abroad:
-					.controls
-						%input{:type => "text", :placeholder => "Telephone outside of US"}
-				.control-group
-					%label{:class => 'control-label'} Can we leave a message?
-					.controls
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-	%form{:class => 'form-horizontal'}
-		.control-group
-			%label{:class => 'control-label'} Cell Phone:
-			.controls
-				%input{:type => "text", :placeholder => "Cell Phone Number"}
-	.divide
-		.divide-left
-			%form{:class => 'form-horizontal'}
-				.control-group
-					%label{:class => 'control-label'} Can we call you?
-					.controls
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-		.divide-right
-			%form{:class => 'form-horizontal'}
-				.control-group
-					%label{:class => 'control-label'} Can we leave a message?
-					.controls
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-	%form{:class => 'form-horizontal'}
-		.control-group
-			%label{:class => 'control-label'} Work Phone:
-			.controls
-				%input{:type => "text", :placeholder => "Work Phone Number"}
-	.divide
-		.divide-left
-			%form{:class => 'form-horizontal'}
-				.control-group
-					%label{:class => 'control-label'} Can we call you?
-					.controls
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-		.divide-right
-			%form{:class => 'form-horizontal'}
-				.control-group
-					%label{:class => 'control-label'} Can we leave a message?
-					.controls
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-	%form{:class => 'form-horizontal'}
-		.control-group
-			%label{:class => 'control-label'} Other Phone:
-			.controls
-				%input{:type => "text", :placeholder => "Cell Phone Number"}
-	.divide
-		.divide-left
-			%form{:class => 'form-horizontal'}
-				.control-group
-					%label{:class => 'control-label'} Can we call you?
-					.controls
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-		.divide-right
-			%form{:class => 'form-horizontal'}
-				.control-group
-					%label{:class => 'control-label'} Can we leave a message?
-					.controls
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-	%form{:class => 'form-horizontal'}
-		.control-group
-			%label{:class => 'control-label'} E-Mail Address:
-			.controls
-				%input{:type => "text", :placeholder => "E-mail Address"}
-	.divide
-		.divide-left
-			%form{:class => 'form-horizontal'}
-				.control-group
-					%label{:class => 'control-label'} Can we write you?
-					.controls
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-		.divide-right
-			%form{:class => 'form-horizontal'}
-				.control-group
-					%label{:class => 'control-label'} Can we leave a message?
-					.controls
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
-						%label{:class => 'radio inline'}
-							%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-	#yesorno
+			.divide-right
+				%form{:class => 'form-horizontal'}
+					.control-group
+						%label{:class => 'control-label'} Date:
+						.controls
+							%input{:type => "text", :placeholder => "#{Time.now.month.to_s+'/'+Time.now.day.to_s+'/'+Time.now.year.to_s}"}
+					.control-group
+						%label{:class => 'control-label'} Language:
+						.controls
+							%input{:type => "text", :placeholder => "English"}
+					.control-group
+						%label{:class => 'control-label'} Interpreter Relationship:
+						.controls
+							%input{:type => "text", :placeholder => "Friend, Mother, etc."}
+					.control-group
+						%label{:class => 'control-label'} Interpreter Phone:
+						.controls
+							%input{:type => "text", :placeholder => "(702) 123-4567"}
+					.control-group
+						%label{:class => 'control-label'} Name and Organization:
+						.controls
+							%input{:type => "text", :placeholder => "Legal Aid"}
 		%form{:class => 'form-horizontal'}
 			.control-group
-				%label{:class => 'control-label'} Have you lived in your current residence for the past five(5) years?
+				%label{:class => 'control-label'} How did the applicant hear about Thomas and Mack Legal Clinic?
 				.controls
-				%label{:class => 'radio inline'}	
-					%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
-				%label{:class => 'radio inline'}
-					%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
-	#restable
-		%table{:class => 'table table-bordered'}
-			%thead
-				%tr
-					%th Street Address
-					%th City/State/Zip
-					%th Country
-					%th From (MM/YY)
-					%th To (MM/YY)
-			%tbody
-				%tr
-					%th
-						%input{:type => "text", :placeholder => "Address"}
-					%th
-						%input{:type => "text", :placeholder => "City/State/Zip"}
-					%th
-						%input{:type => "text", :placeholder => "Country", :class => "input-small"}
-					%th
-						%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}
-					%th
-						%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}
-			%tbody
-				%tr
-					%th
-						%input{:type => "text", :placeholder => "Address"}
-					%th
-						%input{:type => "text", :placeholder => "City/State/Zip"}
-					%th
-						%input{:type => "text", :placeholder => "Country", :class => "input-small"}
-					%th
-						%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}
-					%th
-						%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}
-			%tbody
-				%tr
-					%th
-						%input{:type => "text", :placeholder => "Address"}
-					%th
-						%input{:type => "text", :placeholder => "City/State/Zip"}
-					%th
-						%input{:type => "text", :placeholder => "Country", :class => "input-small"}
-					%th
-						%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}
-					%th
-						%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}
-			%tbody
-				%tr
-					%th
-						%input{:type => "text", :placeholder => "Address"}
-					%th
-						%input{:type => "text", :placeholder => "City/State/Zip"}
-					%th
-						%input{:type => "text", :placeholder => "Country", :class => "input-small"}
-					%th
-						%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}
-					%th
-						%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}
-			%tbody
-				%tr
-					%th
-						%input{:type => "text", :placeholder => "Address"}
-					%th
-						%input{:type => "text", :placeholder => "City/State/Zip"}
-					%th
-						%input{:type => "text", :placeholder => "Country", :class => "input-small"}
-					%th
-						%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}
-					%th
-						%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}	
-	/ %h2 Employment Information
-	/ %h2 Household Information
-	/ %h2 Marital Status Information
-	/ %h2 Immigration Status
-	/ %h2 All Entries to the United States
-	/ %h2 Personal Criminal History
-	/ %h2 Family Information
-	%h2 Public Benefits Information
-	#yesorno
+					%textarea{:rows => '3'}
+
+		%h2 Personal Information
+		.divide
+			.divide-left
+				%form{:class => 'form-horizontal', :method => 'POST', :action => '/'}
+					.control-group
+						%label{:class => 'control-label', :for => 'first_name'} First Name:
+						.controls
+							%input{:type => "text", :placeholder => "First Name", :name => "first_name", :value => @values[:first_name] || ""}
+					.control-group
+						%label{:class => 'control-label', :method => 'POST'} Last Name:
+						.controls
+							%input{:type => "text", :placeholder => "Last Name", :name => "last_name", :value => @values[:last_name] || ""}
+
+					/ .control-group
+					/ 	%label{:class => 'control-label'} Sex
+					/ 	.controls
+					/ 		%label{:class => 'radio inline'}
+					/ 			%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } M
+					/ 		%label{:class => 'radio inline'}
+					/ 			%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} F
+					/ 		%label{:class => 'radio inline'}
+					/ 			%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} O
+					/ .control-group
+					/ 	%label{:class => 'control-label'} Date of Birth:
+					/ 	.controls
+					/ 		%input{:type => "text", :placeholder => "1/1/1970"}
+					/ .control-group
+					/ 	%label{:class => 'control-label'} Country of Citizenship:
+					/ 	.controls
+					/ 		%input{:type => "text", :placeholder => "USA"}
+			.divide-right
+				%form{:class => 'form-horizontal'}
+					.control-group
+						%label{:class => 'control-label'} Middle Name:
+						.controls
+							%input{:type => "text", :placeholder => "Last Name"}
+					.control-group
+						%label{:class => 'control-label'} Maiden Name:
+						.controls
+							%input{:type => "text", :placeholder => "Maiden Name (if any)"}
+					.control-group
+						%label{:class => 'control-label'} Nicknames:
+						.controls
+							%input{:type => "text", :placeholder => "Frankie, Alex, 2pac"}
+					.control-group
+						%label{:class => 'control-label'} Place of Birth:
+						.controls
+							%input{:type => "text", :placeholder => "Las Vegas, NV", :value => @values[:name]}
+					.control-group
+						%label{:class => 'control-label'} Jurisdiction:
+						.controls
+							%input{:type => "text", :placeholder => "Clark County, Nevada"}
 		%form{:class => 'form-horizontal'}
 			.control-group
-				%label{:class => 'control-label'} Are you or your children receiving public benefits (Work First, Food stamps etc.)?
+				%label{:class => 'control-label'} Address:
 				.controls
-				%label{:class => 'radio inline'}	
-					%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
-				%label{:class => 'radio inline'}
-					%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No			
-	#bendivide
-		.divide-left
+					%textarea{:rows => '3', :placeholder => "Address in the US"}
+		%form{:class => 'form-horizontal'}
+			.control-group
+				%label{:class => 'control-label'} Permanent Address Abroad:
+				.controls
+					%textarea{:rows => '3', :placeholder => "Address in another country (if any)"}
+		.divide
+			.divide-left
+				%form{:class => 'form-horizontal'}
+					.control-group
+						%label{:class => 'control-label'} Telephone Number (USA):
+						.controls
+							%input{:type => "text", :placeholder => "Telephone starting with +1"}
+					.control-group
+						%label{:class => 'control-label'} Can we call you?
+						.controls
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
+			.divide-right
+				%form{:class => 'form-horizontal'}
+					.control-group
+						%label{:class => 'control-label'} Telephone Number Abroad:
+						.controls
+							%input{:type => "text", :placeholder => "Telephone outside of US"}
+					.control-group
+						%label{:class => 'control-label'} Can we leave a message?
+						.controls
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
+		%form{:class => 'form-horizontal'}
+			.control-group
+				%label{:class => 'control-label'} Cell Phone:
+				.controls
+					%input{:type => "text", :placeholder => "Cell Phone Number"}
+		.divide
+			.divide-left
+				%form{:class => 'form-horizontal'}
+					.control-group
+						%label{:class => 'control-label'} Can we call you?
+						.controls
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
+			.divide-right
+				%form{:class => 'form-horizontal'}
+					.control-group
+						%label{:class => 'control-label'} Can we leave a message?
+						.controls
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
+		%form{:class => 'form-horizontal'}
+			.control-group
+				%label{:class => 'control-label'} Work Phone:
+				.controls
+					%input{:type => "text", :placeholder => "Work Phone Number"}
+		.divide
+			.divide-left
+				%form{:class => 'form-horizontal'}
+					.control-group
+						%label{:class => 'control-label'} Can we call you?
+						.controls
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
+			.divide-right
+				%form{:class => 'form-horizontal'}
+					.control-group
+						%label{:class => 'control-label'} Can we leave a message?
+						.controls
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
+		%form{:class => 'form-horizontal'}
+			.control-group
+				%label{:class => 'control-label'} Other Phone:
+				.controls
+					%input{:type => "text", :placeholder => "Cell Phone Number"}
+		.divide
+			.divide-left
+				%form{:class => 'form-horizontal'}
+					.control-group
+						%label{:class => 'control-label'} Can we call you?
+						.controls
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
+			.divide-right
+				%form{:class => 'form-horizontal'}
+					.control-group
+						%label{:class => 'control-label'} Can we leave a message?
+						.controls
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
+		%form{:class => 'form-horizontal'}
+			.control-group
+				%label{:class => 'control-label'} E-Mail Address:
+				.controls
+					%input{:type => "text", :placeholder => "E-mail Address"}
+		.divide
+			.divide-left
+				%form{:class => 'form-horizontal'}
+					.control-group
+						%label{:class => 'control-label'} Can we write you?
+						.controls
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
+			.divide-right
+				%form{:class => 'form-horizontal'}
+					.control-group
+						%label{:class => 'control-label'} Can we leave a message?
+						.controls
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
+							%label{:class => 'radio inline'}
+								%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
+		#yesorno
 			%form{:class => 'form-horizontal'}
 				.control-group
-					%label{:class => 'control-label'} Case #:
+					%label{:class => 'control-label'} Have you lived in your current residence for the past five(5) years?
 					.controls
-						%input{:type => "text", :placeholder => "For Public Benefits"}
-		.divide-right
+					%label{:class => 'radio inline'}	
+						%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
+					%label{:class => 'radio inline'}
+						%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No
+		#restable
+			%table{:class => 'table table-bordered'}
+				%thead
+					%tr
+						%th Street Address
+						%th City/State/Zip
+						%th Country
+						%th From (MM/YY)
+						%th To (MM/YY)
+				%tbody
+					%tr
+						%th
+							%input{:type => "text", :placeholder => "Address"}
+						%th
+							%input{:type => "text", :placeholder => "City/State/Zip"}
+						%th
+							%input{:type => "text", :placeholder => "Country", :class => "input-small"}
+						%th
+							%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}
+						%th
+							%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}
+				%tbody
+					%tr
+						%th
+							%input{:type => "text", :placeholder => "Address"}
+						%th
+							%input{:type => "text", :placeholder => "City/State/Zip"}
+						%th
+							%input{:type => "text", :placeholder => "Country", :class => "input-small"}
+						%th
+							%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}
+						%th
+							%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}
+				%tbody
+					%tr
+						%th
+							%input{:type => "text", :placeholder => "Address"}
+						%th
+							%input{:type => "text", :placeholder => "City/State/Zip"}
+						%th
+							%input{:type => "text", :placeholder => "Country", :class => "input-small"}
+						%th
+							%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}
+						%th
+							%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}
+				%tbody
+					%tr
+						%th
+							%input{:type => "text", :placeholder => "Address"}
+						%th
+							%input{:type => "text", :placeholder => "City/State/Zip"}
+						%th
+							%input{:type => "text", :placeholder => "Country", :class => "input-small"}
+						%th
+							%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}
+						%th
+							%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}
+				%tbody
+					%tr
+						%th
+							%input{:type => "text", :placeholder => "Address"}
+						%th
+							%input{:type => "text", :placeholder => "City/State/Zip"}
+						%th
+							%input{:type => "text", :placeholder => "Country", :class => "input-small"}
+						%th
+							%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}
+						%th
+							%input{:type => "text", :placeholder => "MM/YY", :class => "input-mini"}	
+		/ %h2 Employment Information
+		/ %h2 Household Information
+		/ %h2 Marital Status Information
+		/ %h2 Immigration Status
+		/ %h2 All Entries to the United States
+		/ %h2 Personal Criminal History
+		/ %h2 Family Information
+		%h2 Public Benefits Information
+		#yesorno
 			%form{:class => 'form-horizontal'}
 				.control-group
-					%label{:class => 'control-label'} Worker's Name:
+					%label{:class => 'control-label'} Are you or your children receiving public benefits (Work First, Food stamps etc.)?
 					.controls
-						%input{:type => "text", :placeholder => "Jane Smith"}
-	%h2 Information about Services and Referrals
-	#checklist
-		%p Would you like to receive any information on any of the following?
-		%ul
-			%li
-				%label{:class => 'checkbox'}
-					%input{:type => 'checkbox'} Domestic violence emergency hotlines
-			%li
-				%label{:class => 'checkbox'}
-					%input{:type => 'checkbox'} Call for help card in another language
-			%li
-				%label{:class => 'checkbox'}
-					%input{:type => 'checkbox'} Shelters
-			%li
-				%label{:class => 'checkbox'}
-					%input{:type => 'checkbox'} Domestic violence advocacy programs
-			%li
-				%label{:class => 'checkbox'}
-					%input{:type => 'checkbox'} Food banks
-			%li
-				%label{:class => 'checkbox'}
-					%input{:type => 'checkbox'} Emergency assisstance
-			%li
-				%label{:class => 'checkbox'}
-					%input{:type => 'checkbox'} Landlord tenant issues
-			%li
-				%label{:class => 'checkbox'}
-					%input{:type => 'checkbox'} Information on how to protect yourself
-			%li
-				%label{:class => 'checkbox'}
-					%input{:type => 'checkbox'} Information about Battered Women Programs
-	%h2 When you finish, print this page for our records.
-	%input{:class => 'submit_button', :id => 'print', :value => 'Print Page'}
+					%label{:class => 'radio inline'}	
+						%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1' } Yes
+					%label{:class => 'radio inline'}
+						%input{:type => 'radio', :name => 'optionsRadios', :id => 'optionsRadio1', :value => 'option1'} No			
+		#bendivide
+			.divide-left
+				%form{:class => 'form-horizontal'}
+					.control-group
+						%label{:class => 'control-label'} Case #:
+						.controls
+							%input{:type => "text", :placeholder => "For Public Benefits"}
+			.divide-right
+				%form{:class => 'form-horizontal'}
+					.control-group
+						%label{:class => 'control-label'} Worker's Name:
+						.controls
+							%input{:type => "text", :placeholder => "Jane Smith"}
+		%h2 Information about Services and Referrals
+		#checklist
+			%p Would you like to receive any information on any of the following?
+			%ul
+				%li
+					%label{:class => 'checkbox'}
+						%input{:type => 'checkbox'} Domestic violence emergency hotlines
+				%li
+					%label{:class => 'checkbox'}
+						%input{:type => 'checkbox'} Call for help card in another language
+				%li
+					%label{:class => 'checkbox'}
+						%input{:type => 'checkbox'} Shelters
+				%li
+					%label{:class => 'checkbox'}
+						%input{:type => 'checkbox'} Domestic violence advocacy programs
+				%li
+					%label{:class => 'checkbox'}
+						%input{:type => 'checkbox'} Food banks
+				%li
+					%label{:class => 'checkbox'}
+						%input{:type => 'checkbox'} Emergency assisstance
+				%li
+					%label{:class => 'checkbox'}
+						%input{:type => 'checkbox'} Landlord tenant issues
+				%li
+					%label{:class => 'checkbox'}
+						%input{:type => 'checkbox'} Information on how to protect yourself
+				%li
+					%label{:class => 'checkbox'}
+						%input{:type => 'checkbox'} Information about Battered Women Programs
 	#clio 
+		When you finish, print this page for our records.
+		.print
+			%button{:class => 'submit_button'}Print Page
 		After you print this page, you can now send this form to 
 		%a{:href => 'app.goclio.com'} Clio 
 		to create a new contact and matter.
