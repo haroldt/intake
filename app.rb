@@ -3,12 +3,10 @@ require 'sinatra'
 require 'haml'
 require 'omniauth-clio'
 require 'httparty'
-require 'rack-flash'
 
 # Set up Omniauth
 enable :sessions
 use Rack::Session::Cookie
-use Rack::Flash
 use OmniAuth::Builder do
   provider :clio, ENV['CLIO_CLIENT_KEY'], ENV['CLIO_CLIENT_SECRET'] 
 end
@@ -23,6 +21,7 @@ set :haml, {:format => :html5} # default Haml format is :xhtml
 
 # Application routes
 get '/' do
+	@values = {}
   unless session['token'].nil?
     get_activities
     haml :index, :layout => :'layouts/application'
@@ -39,39 +38,31 @@ get '/auth/clio/callback' do
 end
 
 get '/logout' do
+	@values = {}
 	session['token'] = nil
 	redirect '/'
 end
 
 get '/auth/failure' do
-	flash[:error] = "Authentication Failed: You will need to reauthenticate"
 	redirect '/'  
 end
 
 get '/auth/clio/deauthorized' do
-	flash[:error] = "Authentication Failed: You will need to reauthenticate"
 	redirect '/'
 end
 
 post '/' do
-	token = session['token']
-  auth = "Bearer " + token
-  
-  user = HTTParty.get("https://app.goclio.com/api/v1/activities", :headers => { "Authorization" => auth})
-  
+	@values = params
+	haml :review, :layout => :'layouts/application'
 end
 
 # Clio API Methods
 def get_activities
-	# token = session['token']
- #  auth = "Bearer " + token
- #  user = HTTParty.get("https://app.goclio.com/api/v1/activities", :headers => { "Authorization" => auth}, :query => {:status })
- #  @posts = user['activities']
+	token = session['token']
+  auth = "Bearer " + token
+  user = HTTParty.get("https://app.goclio.com/api/v1/activities", :headers => { "Authorization" => auth})
+  @activities = user['activities']
 end
-
-
-
-
 
 
 

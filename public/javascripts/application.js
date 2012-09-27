@@ -6,5 +6,10 @@ $(document).ready(function() {
 	  .not("a[href*='" + hostname + "']")
 	  .addClass('link external')
 	  .attr('target', '_blank');
+});
 
+$('#sendall').click(function() {
+    $('form').each(function() {
+        $.post(this.action, $form.serialize());
+    });
 });

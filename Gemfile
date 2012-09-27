@@ -22,5 +22,5 @@ gem 'heroku'
 # For Partying! (or calling Clio's Rest API)
 gem 'httparty'
 
-# For flashing messages
-gem 'rack-flash3'
+# For creating Json
+gem 'jsonify'

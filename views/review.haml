@@ -1,0 +1,15 @@
+.box
+	/ = @query
+	#greetings
+		Thanks for using this application #{session['auth']['info']['first_name']}!
+	%h2 
+		A new Client has been created in your
+		%a{:href => 'http://app.goclio.com'} Clio Account.
+	.divide
+		.divide-left	
+			.client	
+				First Name: #{params[:first_name]}
+				%br
+				Last Name: #{params[:last_name]}
+	#signout
+		%a{:href => '/logout'}All done?

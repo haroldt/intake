@@ -158,18 +158,6 @@ form {
   width: 100%;
 }
 
-li {
-  margin: 5px 0;
-}
-
-#control-group {
-  margin: 10px;
-}
-
-.control-label {
-  margin-right: 5px;
-}
-
 form, input {
   font-size: 13px;
   font-family: "museo-slab", serif;
@@ -202,8 +190,8 @@ textarea {
   font-size: 13px;
 }
 
-table {
-  margin: 10px 0;
+li {
+  margin: 5px 0;
 }
 
 #yesorno {
@@ -215,6 +203,21 @@ table {
 }
 #yesorno .control-label .control-group {
   width: 300px;
+}
+
+table {
+  margin: 10px 0;
+}
+table input {
+  margin: 0;
+}
+
+#clio {
+  width: 70%;
+  margin: 0 15%;
+  font-size: 20px;
+  text-align: center;
+  font-family: "trajan-pro", sans-serif;
 }
 
 input[type="submit"] {
@@ -243,4 +246,10 @@ input[type="submit"] {
 footer {
   text-align: center;
   margin-bottom: 5px;
+}
+
+.client {
+  margin-left: 30%;
+  font-size: 16px;
+  line-height: 22px;
 }
