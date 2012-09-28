@@ -27,4 +27,9 @@
 	#signout
 		%button{:class => 'submit_button'}
 			%a{:href => '/logout'}All done?
-	= @json
+	#json
+		PS: This is the JSON that got sent over to Clio.
+		= @client
+		%br
+		And here is the response from Clio!
+		= @post

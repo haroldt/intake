@@ -273,6 +273,11 @@ footer {
   margin: 20px 0;
 }
 
+#json {
+  margin: 20px 0;
+  text-align: center;
+}
+
 button a:hover {
   color: #cbcccf;
   text-decoration: none;

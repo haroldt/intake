@@ -3,7 +3,8 @@ require 'sinatra'
 require 'haml'
 require 'omniauth-clio'
 require 'httparty'
-require 'Jsonify'
+require 'jsonify'
+require 'jsonify/tilt'
 
 # Set up Omniauth
 enable :sessions
@@ -24,7 +25,6 @@ set :haml, {:format => :html5} # default Haml format is :xhtml
 get '/' do
 	@values = {}
   unless session['token'].nil?
-    get_activities
     haml :index, :layout => :'layouts/application'
   else
     haml :show, :layout => :'layouts/application'
@@ -54,26 +54,30 @@ end
 
 post '/' do
 	@values = params
-	create_json
+	create_json_client
+	token = session['token']
+  auth = "Bearer " + token
+  @post = HTTParty.post("https://app.goclio.com/api/v1/contacts", :headers => { "Authorization" => auth, 'Content-Type' => 'application/json'}, :body => {'contact' => @client})
 	haml :review, :layout => :'layouts/application'
 end
 
 # Clio API Methods
-def get_activities
-	token = session['token']
-  auth = "Bearer " + token
-  user = HTTParty.get("https://app.goclio.com/api/v1/activities", :headers => { "Authorization" => auth})
-  @activities = user['activities']
-end
+# def get_activities - Just a test to get HTTParty working
+# 	token = session['token']
+#   auth = "Bearer " + token
+#   user = HTTParty.get("https://app.goclio.com/api/v1/activities", :headers => { "Authorization" => auth})
+#   @activities = user['activities']
+# end
 
-def create_json
+# Create Json for Posting
+def create_json_client
 	json = Jsonify::Builder.new
-	etc = json.person do # start a new JsonObject where the key is 'foo'
-  	json.name 'George Burdell' # add a pair to this object
-  	json.skills ['engineering','bombing'] # adds a pair with an array value
-  	json.name 'George P. Burdell'
+	json.client do # start a new JsonObject 
+  	json.type "Person" 
+  	json.first_name "#{params[:first_name]}"
+  	json.last_name "#{params[:last_name]}"
   end
-  @json = etc
+  @client = json.compile!
 end
 
 
